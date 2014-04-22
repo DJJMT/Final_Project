@@ -10,6 +10,7 @@ import java.sql.Statement;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 //CLASS LOGIN
@@ -21,7 +22,7 @@ class LOGIN extends JFrame
 	JButton Login = new JButton("LOGIN");
 	JButton Create = new JButton("CREATE NEW USER");
 	JTextField Username_Box = new JTextField();
-	JTextField Password_Box = new JTextField();
+	JPasswordField Password_Box = new JPasswordField();
 	private JLabel Username_Label;
     private JLabel Password_Label;
 
