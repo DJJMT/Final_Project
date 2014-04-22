@@ -24,6 +24,7 @@ class Create_New_User extends JFrame
 	JTextField access_code_input = new JTextField();
 	JTextField group_input = new JTextField();
 	JButton Create = new JButton("Create");
+	JButton Back = new JButton("Back to Login");
 	JLabel FirstName_Label = new JLabel("First Name: ");
 	JLabel LastName_Label = new JLabel("Last Name: ");
 	JLabel Username_Label = new JLabel("Username: ");
@@ -117,9 +118,11 @@ class Create_New_User extends JFrame
 		//CREATE BUTTON
 		Create.setLayout(null);
 	    Create.setLocation(150, 230);
-	    Create.setSize(170, 25);
+	    Create.setSize(150, 25);
 		Create.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
+			//ERROR CHECKING SECTION
+			
 			//CLOSE WINDOW WHEN CREATE BUTTON CLICKED
 			setVisible(false);
 				try {
@@ -139,7 +142,20 @@ class Create_New_User extends JFrame
 				}
 			}          
 		});
-	    add(Create);	
+	    add(Create);
+	    
+	  //BACK BUTTON
+	  Back.setLayout(null);
+	  Back.setLocation(310, 230);
+	  Back.setSize(150, 25);
+	  Back.addActionListener(new ActionListener() {
+		  public void actionPerformed(ActionEvent e) {
+			  //CLOSE WINDOW WHEN CREATE BUTTON CLICKED
+	  			setVisible(false);
+	  			new LOGIN();
+	  			}          
+	  		});
+	  	    add(Back);
 	}
 	//ADD ACCOUNT FUNCTION WITH SQL QUERIES
 	public void sql_add_account() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
