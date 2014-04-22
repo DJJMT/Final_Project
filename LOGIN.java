@@ -61,6 +61,7 @@ class LOGIN extends JFrame
     	public void actionPerformed(ActionEvent e) {
     			try {
     				//CALL TO CREATE NEW USER FUNCTION BELOW
+    				setVisible(false);
 					new Create_New_User();
 				} catch (InstantiationException e1) {
 					// TODO Auto-generated catch block
