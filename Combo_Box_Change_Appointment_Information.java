@@ -8,9 +8,11 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import java.sql.Statement;
+import java.util.regex.Pattern;
 
 //CLASS COMBO_BOX CHANGE APPOINTMENT INFORMATION
 @SuppressWarnings("serial")
@@ -82,11 +84,41 @@ class Combo_Box_Change_Appointment_Information extends JFrame
 	    Change.setSize(170, 25);
 		Change.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
+			
+       	 	String Title_Input = title_input.getText();
+       	 	String Change_Input = change_input.getText();
+       	 	
+       	 	Pattern Letters_Numbers = Pattern.compile("[a-zA-Z0-9]");
+       	 	Pattern Letters_Only = Pattern.compile("[a-zA-Z]");
+       	 	
+       	 	boolean TitleInput_hasSpecialChar = Letters_Only.matcher(Title_Input).find();
+       	 	boolean Change_hasSpecialChar = Letters_Numbers.matcher(Change_Input).find();
+       	 	
+       	 if( TitleInput_hasSpecialChar == false)
+ 	 	 	{
+       		 //Checks to make sure title is valid
+       		 JOptionPane.showMessageDialog(null,
+				    "Please enter a valid Title!",
+				    "Title Error",
+				    JOptionPane.ERROR_MESSAGE);
+ 	 	 	}
+       	 	
+       	if(Change_hasSpecialChar == false)
+	   		{
+       		//Checks to make sure Change field is valid
+       		JOptionPane.showMessageDialog(null,
+			    "Please enter a valid Change value",
+			    "Change Error",
+			    JOptionPane.ERROR_MESSAGE);
+	   		}
+			
+       	if(Change_hasSpecialChar == true && TitleInput_hasSpecialChar == true)
+       	{
 			//CLOSE WINDOW WHEN CHANGE BUTTON CLICKED
-			setVisible(false);
 				try {
 					choice = options.getSelectedIndex();
 					sql_change_appointment_info(choice);
+					setVisible(false);
 				} catch (InstantiationException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -100,7 +132,8 @@ class Combo_Box_Change_Appointment_Information extends JFrame
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			}          
+			} 
+		}
 		});
 	    add(Change);	
 	}

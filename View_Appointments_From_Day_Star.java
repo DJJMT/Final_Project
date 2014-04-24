@@ -9,7 +9,7 @@ import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-//CLASS ViewAppointment
+//CLASS ViewAppointment 
 @SuppressWarnings("serial")
 class View_Appointments_From_Day_Star extends JFrame
 {

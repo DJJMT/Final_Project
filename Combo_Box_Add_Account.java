@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import java.sql.Statement;
+import java.util.regex.Pattern;
 
 //CLASS COMBO_BOX ADD ACCOUNT
 @SuppressWarnings("serial")
@@ -139,11 +141,59 @@ class Combo_Box_Add_Account extends JFrame
 	    Add.setSize(170, 25);
 		Add.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
+			
+			//gets String value from the input of JText
+			 String FirstName_Input = f_name_input.getText();
+        	 String LastName_Input = l_name_input.getText();
+        	 String Username_Input = username_input.getText();
+        	 String Password_Input = password_input.getText();
+        	 //Pattern used to make sure only certain values are typed
+        	 Pattern Letters_Numbers = Pattern.compile("[a-zA-Z0-9]");
+        	 Pattern Letters_Only = Pattern.compile("[a-zA-Z]");
+        	 Pattern Non_White_Spaces = Pattern.compile("\\S");
+        	 
+        	 boolean FirstName_hasSpecialChar = Letters_Only.matcher(FirstName_Input).find();
+        	 boolean LastName_hasSpecialChar = Letters_Only.matcher(LastName_Input).find();
+        	 boolean Username_hasSpecialChar = Letters_Numbers.matcher(Username_Input).find();
+        	 boolean Password_hasSpecialChar = Non_White_Spaces.matcher(Password_Input).find();
+        	 
+        	 //ERROR CHECKING
+        	 if( FirstName_hasSpecialChar == false  || LastName_hasSpecialChar == false)//FirstName_Input.equals("") || LastName_Input.equals("") ||
+     	   		{
+     		//Checks to make sure first and last name are present
+     		JOptionPane.showMessageDialog(null,
+ 				    "Please enter a valid first and last name!",
+ 				    "Name Error",
+ 				    JOptionPane.ERROR_MESSAGE);
+     	   		}
+        	 
+        	 if( Username_hasSpecialChar == false)
+	        	{
+	        		//Checks to make sure Username present
+	        		JOptionPane.showMessageDialog(null,
+	    				    "Please enter a valid username!",
+	    				    "Username Error",
+	    				    JOptionPane.ERROR_MESSAGE);
+	        	}
+        	 
+        	 if(Password_hasSpecialChar == false)
+	        	{
+        		 	//Makes sure the password does not include a "space"
+	        		JOptionPane.showMessageDialog(null,
+	       				    "User must have a password!",
+	       				    "Password Error",
+	       				    JOptionPane.ERROR_MESSAGE);
+	        	}
+        	 if((FirstName_hasSpecialChar == true  && LastName_hasSpecialChar == true) &&
+		        	 (Username_hasSpecialChar == true) && 
+		        	  Password_hasSpecialChar == true)
+        	 {
 			//CLOSE WINDOW WHEN CREATE BUTTON CLICKED
-			setVisible(false);
+			
 				try {
 					//FUNCTION PERFORMED WHEN CREATE BUTTON CLICKED
 					sql_add_account();
+					setVisible(false);
 				} catch (InstantiationException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -157,6 +207,7 @@ class Combo_Box_Add_Account extends JFrame
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+        	 }
 			}          
 		});
 		//ADD CREATE BUTTON

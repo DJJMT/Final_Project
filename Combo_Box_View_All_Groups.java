@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
-//CLASS COMBO BOX VIEW ALL GROUPS
+//CLASS COMBO BOX VIEW ALL GROUPS 
 @SuppressWarnings("serial")
 class Combo_Box_View_All_Groups extends JFrame
 {

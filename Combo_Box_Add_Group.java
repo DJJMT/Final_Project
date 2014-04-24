@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import java.sql.Statement;
+import java.util.regex.Pattern;
 
 //CLASS COMBO_BOX ADD GROUP
 @SuppressWarnings("serial")
@@ -65,10 +67,40 @@ class Combo_Box_Add_Group extends JFrame
 	    Add.setSize(170, 25);
 		Add.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
+			
+			String GroupName_Input = group_name_input.getText();
+			String MemberCount_Input = member_count_input.getText();
+			
+			Pattern Letters_Only = Pattern.compile("[a-zA-Z]");
+			Pattern Numbers_Only = Pattern.compile("[0-9]");
+			
+			boolean GroupName_hasSpecialChar = Letters_Only.matcher(GroupName_Input).find();
+			boolean MemberCount_hasSpecialChar = Numbers_Only.matcher(MemberCount_Input).find();
+
+			if(GroupName_hasSpecialChar == false)
+				{ //Makes sure group name is valid
+        		//Checks to make sure group name is letters only
+        		JOptionPane.showMessageDialog(null,
+    				    "Please enter a valid Group Name!",
+    				    "Name Error",
+    				    JOptionPane.ERROR_MESSAGE);
+        	   	}
+			
+			if(MemberCount_hasSpecialChar == false)
+				{
+        		//Checks to make sure Member count is an integer
+        		JOptionPane.showMessageDialog(null,
+    				    "Please enter a valid Group Count!",
+    				    "Count Error",
+    				    JOptionPane.ERROR_MESSAGE);
+        	   	}
+			
+			if(GroupName_hasSpecialChar == true && MemberCount_hasSpecialChar == true)
 			//CLOSE WINDOW WHEN CREATE BUTTON CLICKED
-			setVisible(false);
+			{
 				try {
 					sql_add_group();
+					setVisible(false);
 				} catch (InstantiationException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -82,6 +114,7 @@ class Combo_Box_Add_Group extends JFrame
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+			}
 			}          
 		});
 	    add(Add);	

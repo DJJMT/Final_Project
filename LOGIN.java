@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-//CLASS LOGIN
+//CLASS LOGIN 
 @SuppressWarnings("serial")
 class LOGIN extends JFrame
 {

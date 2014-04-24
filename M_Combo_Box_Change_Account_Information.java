@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 
 import java.sql.Statement;
 
-//CLASS COMBO_BOX CHANGE ACCOUNT INFORMATION (FOR MANAGERS ONLY)
+//CLASS COMBO_BOX CHANGE ACCOUNT INFORMATION (FOR MANAGERS ONLY) 
 @SuppressWarnings("serial")
 class M_Combo_Box_Change_Account_Information extends JFrame
 {

@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-//CLASS COMBO_BOX VIEW SPECIFIC GROUP
+//CLASS COMBO_BOX VIEW SPECIFIC GROUP 
 @SuppressWarnings("serial")
 class Combo_Box_View_Specific_Group extends JFrame
 {

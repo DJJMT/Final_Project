@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 import java.sql.Statement;
 
-//CLASS COMBO_BOX CHANGE APPOINTMENT INFORMATION (MANAGERS ONLY)
+//CLASS COMBO_BOX CHANGE APPOINTMENT INFORMATION (MANAGERS ONLY) 
 @SuppressWarnings("serial")
 class M_Combo_Box_Change_Appointment_Information extends JFrame
 {

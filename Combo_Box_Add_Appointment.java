@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import java.sql.Statement;
+import java.util.regex.Pattern;
 
 //CLASS COMBO_BOX ADD APPOINTMENT
 @SuppressWarnings("serial")
@@ -167,10 +169,86 @@ class Combo_Box_Add_Appointment extends JFrame
 	    Add.setSize(170, 25);
 		Add.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			//CLOSE WINDOW WHEN CREATE BUTTON CLICKED
-			setVisible(false);
+			
+			String Title_Input = title_input.getText();
+			String Location_Input = location_input.getText();	
+			String Starthour_Input = start_hour_input.getText();		
+			String Startminute_Input = start_minute_input.getText();
+			String Endhour_Input = end_hour_input.getText();
+			String Endminute_Input = end_minute_input.getText();	
+			String Month_Input = month_input.getText();	
+			String Day_Input = day_input.getText();
+			String Year_Input = year_input.getText();
+			String Group_Input = group_input.getText();
+
+			Pattern Letters_Numbers = Pattern.compile("[a-zA-Z0-9]");
+       	 	Pattern Letters_Only = Pattern.compile("[a-zA-Z]");
+       	 	Pattern Numbers_Only = Pattern.compile("[0-9]");
+       	 
+       	 	boolean TitleInput_hasSpecialChar = Letters_Only.matcher(Title_Input).find();
+       	 	boolean LocationInput_hasSpecialChar = Letters_Numbers.matcher(Location_Input).find();
+       	 	boolean StarthourInput_hasSpecialChar = Numbers_Only.matcher(Starthour_Input).find();
+       	 	boolean StartminuteInput_hasSpecialChar = Numbers_Only.matcher(Startminute_Input).find();
+       	 	boolean EndhourInput_hasSpecialChar = Numbers_Only.matcher(Endhour_Input).find();
+       	 	boolean EndminuteInput_hasSpecialChar = Numbers_Only.matcher(Endminute_Input).find();
+       	 	boolean MonthInput_hasSpecialChar = Numbers_Only.matcher(Month_Input).find();
+       	 	boolean DayInput_hasSpecialChar = Numbers_Only.matcher(Day_Input).find();
+       	 	boolean YearInput_hasSpecialChar = Numbers_Only.matcher(Year_Input).find();
+       	 	boolean GroupInput_hasSpecialChar = Letters_Only.matcher(Group_Input).find();
+       	 	
+       	 	if(TitleInput_hasSpecialChar == false)
+       	 	{//Makes sure Title has valid value
+       	 		JOptionPane.showMessageDialog(null, 
+       	 				"Please enter a Title for the Appointment!",
+       	 				"Title Error",							
+       	 				JOptionPane.ERROR_MESSAGE);
+       	 	}	
+       	 	
+       	 	if(LocationInput_hasSpecialChar == false)
+   	 		{//a Valid Location
+   	 			JOptionPane.showMessageDialog(null, 
+   	 					"Please enter a Location for the Appointment!",
+   	 					"Location Error",							
+   	 					JOptionPane.ERROR_MESSAGE);
+   	 		}
+       	 	
+       	 	if((StarthourInput_hasSpecialChar == false || StartminuteInput_hasSpecialChar == false ||
+       	 	   EndhourInput_hasSpecialChar == false || EndminuteInput_hasSpecialChar == false)  
+       	 	   )
+       	 	{//Has a valid start and end time
+       	 		JOptionPane.showMessageDialog(null, 
+	 					"Please enter a correct start and end time for the Appointment!",
+	 					"Timing Error",							
+	 					JOptionPane.ERROR_MESSAGE); 
+       	 	}
+       	 	
+       	 	if(MonthInput_hasSpecialChar == false || DayInput_hasSpecialChar == false ||
+         	 	   YearInput_hasSpecialChar == false)
+         	{//Has a valid month, day, and year
+         	 		JOptionPane.showMessageDialog(null, 
+  	 					"Please enter a correct date for the Appointment!",
+  	 					"Date Error",							
+  	 					JOptionPane.ERROR_MESSAGE); 
+       	 	}
+       	 	
+       	 	if(GroupInput_hasSpecialChar == false)
+    	 	{//Valid Group name
+    	 		JOptionPane.showMessageDialog(null, 
+    	 				"Please enter a valid Group for the Appointment!",
+    	 				"Group Error",							
+    	 				JOptionPane.ERROR_MESSAGE);
+    	 	}
+       	 	
+       	 	if(TitleInput_hasSpecialChar == true &&	
+       	 		LocationInput_hasSpecialChar == true &&	StarthourInput_hasSpecialChar == true && StartminuteInput_hasSpecialChar == true &&
+            	 	   EndhourInput_hasSpecialChar == true && EndminuteInput_hasSpecialChar == true && 
+               	 	   MonthInput_hasSpecialChar == true && DayInput_hasSpecialChar == true &&
+               	 	   YearInput_hasSpecialChar == true && GroupInput_hasSpecialChar == true)
+       	 	{
+       	 		//Makes sure all conditions are met, and then enters data into database
 				try {
 					sql_add_appointment();
+					setVisible(false);
 				} catch (InstantiationException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -184,6 +262,7 @@ class Combo_Box_Add_Appointment extends JFrame
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+       	 	}
 			}          
 		});
 	    add(Add);	

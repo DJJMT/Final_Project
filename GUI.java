@@ -19,7 +19,7 @@ import java.sql.Statement;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
-//CLASS GUI
+//CLASS GUI 
 @SuppressWarnings({ "serial", "unused" })
 public class GUI extends JFrame
 {

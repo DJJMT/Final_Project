@@ -13,15 +13,9 @@ import javax.swing.JTextField;
 
 import java.sql.Statement;
 import java.util.regex.Pattern;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Font;
-import java.awt.Insets; 
-
-import javax.swing.JPanel;
 
 
-//CLASS COMBO_BOX CREATE NEW USER
+//CLASS COMBO_BOX CREATE NEW USER 
 @SuppressWarnings("serial")
 class Create_New_User extends JFrame
 {
@@ -64,7 +58,7 @@ class Create_New_User extends JFrame
 		
 		//FIRST NAME INPUT BOX
 		f_name_input.setLayout(null);
-		f_name_input.setLocation(150,10);
+		f_name_input.setLocation(170,10);
 		f_name_input.setSize(210,25);
 		add(f_name_input);
 		
@@ -76,7 +70,7 @@ class Create_New_User extends JFrame
 		
 		//LAST NAME INPUT BOX
 		l_name_input.setLayout(null);
-		l_name_input.setLocation(150,40);
+		l_name_input.setLocation(170,40);
 		l_name_input.setSize(210,25);
 		add(l_name_input);
 		
@@ -88,7 +82,7 @@ class Create_New_User extends JFrame
 		
 		//USERNAME INPUT BOX
 		username_input.setLayout(null);
-		username_input.setLocation(150,70);
+		username_input.setLocation(170,70);
 		username_input.setSize(210,25);
 		add(username_input);
 		
@@ -100,19 +94,19 @@ class Create_New_User extends JFrame
 		
 		//PASSWORD INPUT BOX
 		password_input.setLayout(null);
-		password_input.setLocation(150,100);
+		password_input.setLocation(170,100);
 		password_input.setSize(210,25);
 		add(password_input);
 		
 		//PASSWORD VERI LABEL BOX
 		Password_Veri_Label.setLayout(null);
 		Password_Veri_Label.setLocation(20, 130);
-		Password_Veri_Label.setSize(80,25);
+		Password_Veri_Label.setSize(150,25);
 		add(Password_Veri_Label);
 		
 		//PASSWORD VERI INPUT BOX
 		password_veri_input.setLayout(null);
-		password_veri_input.setLocation(150,130);
+		password_veri_input.setLocation(170,130);
 		password_veri_input.setSize(210,25);
 		add(password_veri_input);
 		
@@ -124,7 +118,7 @@ class Create_New_User extends JFrame
 		
 		//ACCESS CODE INPUT BOX
 		access_code_input.setLayout(null);
-		access_code_input.setLocation(150,160);
+		access_code_input.setLocation(170,160);
 		access_code_input.setSize(210,25);
 		add(access_code_input);
 		
@@ -136,7 +130,7 @@ class Create_New_User extends JFrame
 		
 		//GROUP NAME INPUT BOX
 		group_input.setLayout(null);
-		group_input.setLocation(150,190);
+		group_input.setLocation(170,190);
 		group_input.setSize(210,25);
 		add(group_input);		
 		
@@ -174,7 +168,7 @@ class Create_New_User extends JFrame
 	        	 boolean Password_hasSpecialChar = Non_White_Spaces.matcher(Password_Input).find();
 	        	    
 	        	 //Checks to make sure first and last name have only Letters, and no other characters
-	        	 if( FirstName_hasSpecialChar == false  || LastName_hasSpecialChar == false)//FirstName_Input.equals("") || LastName_Input.equals("") ||
+	        	 if( FirstName_hasSpecialChar == false  || LastName_hasSpecialChar == false)
 	        	   	{
 	        		//Checks to make sure first and last name are present
 	        		JOptionPane.showMessageDialog(null,
