@@ -99,7 +99,7 @@ class Combo_Box_Add_Account extends JFrame
 		/*LABEL - ACCESS_CODE_LABEL*/
 		access_code_label.setLayout(null);
 		access_code_label.setLocation(20, 130);
-		access_code_label.setSize(80,25);
+		access_code_label.setSize(100,25);
 		add(access_code_label);
 		
 		//ACCESS CODE INPUT BOX
@@ -113,7 +113,7 @@ class Combo_Box_Add_Account extends JFrame
 			/*LABEL - GROUP_LABEL*/
 			group_label.setLayout(null);
 			group_label.setLocation(20, 160);
-			group_label.setSize(80,25);
+			group_label.setSize(100,25);
 			add(group_label);
 			
 			//GROUP NAME INPUT BOX
@@ -125,7 +125,7 @@ class Combo_Box_Add_Account extends JFrame
 			/*LABEL - HIERARCHY_LABEL*/
 			hierarchy_label.setLayout(null);
 			hierarchy_label.setLocation(20, 190);
-			hierarchy_label.setSize(80,25);
+			hierarchy_label.setSize(100,25);
 			add(hierarchy_label);
 			
 			//HIERARCHY INPUT BOX
@@ -212,6 +212,9 @@ class Combo_Box_Add_Account extends JFrame
 		});
 		//ADD CREATE BUTTON
 	    add(Add);
+	    
+        //Set button to default button to select with enter key
+        getRootPane().setDefaultButton(Add);
 	}
 	
 	//ADD ACCOUNT FUNCTION WITH SQL QUERIES

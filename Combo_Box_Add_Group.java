@@ -39,7 +39,7 @@ class Combo_Box_Add_Group extends JFrame
 		/*LABEL - GROUP_LABEL*/
 		group_label.setLayout(null);
 		group_label.setLocation(20, 10);
-		group_label.setSize(80,25);
+		group_label.setSize(100,25);
 		add(group_label);
 		
 		//GROUP NAME INPUT BOX
@@ -118,6 +118,10 @@ class Combo_Box_Add_Group extends JFrame
 			}          
 		});
 	    add(Add);	
+	    
+        //Set button to default button to select with enter key
+        getRootPane().setDefaultButton(Add);
+	    
 	}
 	//ADD GROUP FUNCTION WITH SQL QUERIES
 	public void sql_add_group() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException

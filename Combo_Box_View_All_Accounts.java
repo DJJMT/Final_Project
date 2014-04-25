@@ -68,7 +68,6 @@ class Combo_Box_View_All_Accounts extends JFrame
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setListData(apps);
 		list.setVisible(true);
-		add(list);
-		
+		add(list);		
 	}
 }

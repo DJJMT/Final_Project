@@ -70,6 +70,10 @@ class Combo_Box_Remove_Group extends JFrame
 			}          
 		});
 	    add(Remove);	
+	    
+        //Set button to default button to select with enter key
+        getRootPane().setDefaultButton(Remove);
+	    
 	}
 	//REMOVE GROUP FUNCTION WITH SQL QUERIES
 	public void sql_remove_group() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException

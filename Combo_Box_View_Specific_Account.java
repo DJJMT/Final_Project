@@ -57,7 +57,7 @@ class Combo_Box_View_Specific_Account extends JFrame
 		  
 		//LNAME_INPUT BOX
 		lname_input.setLayout(null);
-		lname_input.setLocation(150,150);
+		lname_input.setLocation(170,150);
 		lname_input.setSize(210,25);
 		add(lname_input);
 		
@@ -69,7 +69,7 @@ class Combo_Box_View_Specific_Account extends JFrame
 		  
 		//FNAME_INPUT BOX
 		fname_input.setLayout(null);
-		fname_input.setLocation(150,180);
+		fname_input.setLocation(170,180);
 		fname_input.setSize(210,25);
 		add(fname_input);
 		
@@ -97,6 +97,10 @@ class Combo_Box_View_Specific_Account extends JFrame
    		}          
   	});
       add(Lookup);
+      
+      //Set button to default button to select with enter key
+      getRootPane().setDefaultButton(Lookup);
+      
 	}
 	//LOOKUP FUNCTION WITH SQL QUERIES
 	public void sql_lookup() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException

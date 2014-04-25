@@ -185,6 +185,9 @@ public class GUI extends JFrame
     	});
 	    add(Go);
 	    
+        //Set button to default button to select with enter key
+        getRootPane().setDefaultButton(Go);
+	    
 		//STARS----------------------------------------------------||
 	    int h = 0, v = 0;
 	    for(int m = 0; m < 37; m++)

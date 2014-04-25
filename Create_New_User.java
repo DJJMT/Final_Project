@@ -2,6 +2,7 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
@@ -125,7 +126,7 @@ class Create_New_User extends JFrame
 		/*LABEL - GROUP_NAME_LABEL*/
 		Group_Name_Label.setLayout(null);
 		Group_Name_Label.setLocation(20, 190);
-		Group_Name_Label.setSize(80,25);
+		Group_Name_Label.setSize(100,25);
 		add(Group_Name_Label);
 		
 		//GROUP NAME INPUT BOX
@@ -139,6 +140,9 @@ class Create_New_User extends JFrame
 	    Create.setLocation(150, 230);
 	    Create.setSize(150, 25);
 	    add(Create);
+	    
+        //Set button to default button to select with enter key
+        getRootPane().setDefaultButton(Create);
 	    
 	    
 	    Create.addActionListener (new ActionListener() {
@@ -249,8 +253,25 @@ class Create_New_User extends JFrame
 		
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 		Statement s = GUI.con.createStatement();
+		
+
+		
+		
 		//Inserts the values into the Database
 		s.executeUpdate ("INSERT INTO all_users VALUES(default,"+ "4" +","+"\'"+f_name_input.getText()+"\',"+"\'"+l_name_input.getText()+"\',"+"\'"+username_input.getText()+"\',"+"\'"+password_input.getText()+"\',"+"\'"+access_code_input.getText()+"\',"+ "\'" + group_input.getText()+"\'"+");");
+		//Get Member Account number
+	
+//		//s.executeUpdate("INSERT INTO groups VALUES(default," +"\'"+group_input.getText()+"\',"+"0"+");");
+//		s.executeQuery ("SELECT Member_Count FROM groups WHERE G_Name = \'"+group_input.getText()+"\';");
+//		ResultSet rs = s.getResultSet();
+//		int count = 1;
+//		while(rs.next())
+//		{
+//		count = rs.getInt("Member_Count");
+//		count++;
+//		}
+//		s.executeUpdate("UPDATE groups SET Member_Count = \'"+count+"\' WHERE G_NAME = 'Test'");
+//		rs.close();
 		s.close();
 	}
 }

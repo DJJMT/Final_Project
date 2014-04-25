@@ -136,6 +136,10 @@ class Combo_Box_Change_Appointment_Information extends JFrame
 		}
 		});
 	    add(Change);	
+	    
+        //Set button to default button to select with enter key
+        getRootPane().setDefaultButton(Change);
+        
 	}
 	//CHANGE APPOINTMENT INFO FUNCTION WITH SQL QUERIES
 	public void sql_change_appointment_info(int choice) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException

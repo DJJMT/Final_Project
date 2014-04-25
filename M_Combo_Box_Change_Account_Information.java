@@ -116,6 +116,10 @@ class M_Combo_Box_Change_Account_Information extends JFrame
 			}          
 		});
 	    add(Change);	
+	    
+        //Set button to default button to select with enter key
+        getRootPane().setDefaultButton(Change);
+	    
 	}
 	//CHANGE ACCOUNT INFO METHOD WITH SQL QUERIES
 	public void sql_change_acct_info(int choice) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException

@@ -134,6 +134,10 @@ class Combo_Box_Change_Group_Information extends JFrame
 			}          
 		});
 	    add(Change);	
+	    
+        //Set button to default button to select with enter key
+        getRootPane().setDefaultButton(Change);
+	    
 	}
 	//EDIT GROUP INFORMATION METHOD WITH SQL QUERIES
 	public void sql_edit_group(int choice) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException

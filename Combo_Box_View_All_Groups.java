@@ -64,6 +64,6 @@ class Combo_Box_View_All_Groups extends JFrame
 		list.setListData(apps);
 		list.setVisible(true);
 		add(list);
-		
+ 	
 	}
 }

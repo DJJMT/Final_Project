@@ -84,8 +84,10 @@ class Combo_Box_View_Specific_Group extends JFrame
  		}          
 	});
     add(Lookup);
-		
-		
+    
+    //Set button to default button to select with enter key
+    getRootPane().setDefaultButton(Lookup);
+	
 	}
 	//LOOKUP FUNCTION WITH SQL QUERIES
 	public void sql_lookup() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException

@@ -37,7 +37,7 @@ class Combo_Box_Remove_Account extends JFrame
 		/*LABEL - LNAME_LABEL*/
 		lname_label.setLayout(null);
 		lname_label.setLocation(20, 10);
-		lname_label.setSize(200,25);
+		lname_label.setSize(220,25);
 		add(lname_label);
 		
 		//LAST NAME INPUT BOX
@@ -49,7 +49,7 @@ class Combo_Box_Remove_Account extends JFrame
 		/*LABEL - FNAME_LABEL*/
 		fname_label.setLayout(null);
 		fname_label.setLocation(20, 40);
-		fname_label.setSize(200,25);
+		fname_label.setSize(220,25);
 		add(fname_label);
 		
 		//FIRST NAME INPUT BOX
@@ -84,6 +84,10 @@ class Combo_Box_Remove_Account extends JFrame
 			}          
 		});
 	    add(Remove);	
+	    
+        //Set button to default button to select with enter key
+        getRootPane().setDefaultButton(Remove);
+	    
 	}
 	//REMOVE ACCOUNT METHOD WITH SQL QUERIES
 	public void sql_remove_account() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException

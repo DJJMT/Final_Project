@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 import java.sql.Statement;
 import java.util.regex.Pattern;
@@ -58,19 +59,19 @@ class Combo_Box_Add_Appointment extends JFrame
 		
 		//TITLE INPUT BOX
 		title_input.setLayout(null);
-		title_input.setLocation(150,10);
+		title_input.setLocation(165,10);
 		title_input.setSize(210,25);
 		add(title_input);
 		
 		/*LABEL - DESCRIPTION_LABEL*/
 		description_label.setLayout(null);
 		description_label.setLocation(20, 40);
-		description_label.setSize(80,25);
+		description_label.setSize(100,25);
 		add(description_label);
 		
 		//DESCRIPTION INPUT BOX
 		description_input.setLayout(null);
-		description_input.setLocation(150,40);
+		description_input.setLocation(165,40);
 		description_input.setSize(210,25);
 		add(description_input);
 		
@@ -82,7 +83,7 @@ class Combo_Box_Add_Appointment extends JFrame
 		
 		//LOCATION INPUT BOX
 		location_input.setLayout(null);
-		location_input.setLocation(150,70);
+		location_input.setLocation(165,70);
 		location_input.setSize(210,25);
 		add(location_input);
 		
@@ -94,13 +95,13 @@ class Combo_Box_Add_Appointment extends JFrame
 		
 		//START HOUR INPUT BOX
 		start_hour_input.setLayout(null);
-		start_hour_input.setLocation(150,100);
+		start_hour_input.setLocation(165,100);
 		start_hour_input.setSize(110,25);
 		add(start_hour_input);
 		
 		//START MINUT INPUT BOX
 		start_minute_input.setLayout(null);
-		start_minute_input.setLocation(270,100);
+		start_minute_input.setLocation(285,100);
 		start_minute_input.setSize(110,25);
 		add(start_minute_input);
 		
@@ -112,13 +113,13 @@ class Combo_Box_Add_Appointment extends JFrame
 		
 		//END HOUR INPUT BOX
 		end_hour_input.setLayout(null);
-		end_hour_input.setLocation(150,130);
+		end_hour_input.setLocation(165,130);
 		end_hour_input.setSize(110,25);
 		add(end_hour_input);
 		
 		//END MINUTE INPUT BOX
 		end_minute_input.setLayout(null);
-		end_minute_input.setLocation(270,130);
+		end_minute_input.setLocation(285,130);
 		end_minute_input.setSize(110,25);
 		add(end_minute_input);
 		
@@ -130,19 +131,19 @@ class Combo_Box_Add_Appointment extends JFrame
 		
 		//MONTH INPUT BOX
 		month_input.setLayout(null);
-		month_input.setLocation(150,160);
+		month_input.setLocation(165,160);
 		month_input.setSize(75,25);
 		add(month_input);
 		
 		//DAY INPUT BOX
 		day_input.setLayout(null);
-		day_input.setLocation(230,160);
+		day_input.setLocation(245,160);
 		day_input.setSize(75,25);
 		add(day_input);
 		
 		//YEAR INPUT BOX
 		year_input.setLayout(null);
-		year_input.setLocation(310,160);
+		year_input.setLocation(325,160);
 		year_input.setSize(75,25);
 		add(year_input);
 		
@@ -151,12 +152,12 @@ class Combo_Box_Add_Appointment extends JFrame
 			/*LABEL - GROUP_LABEL*/
 			group_label.setLayout(null);
 			group_label.setLocation(20, 190);
-			group_label.setSize(80,25);
+			group_label.setSize(100,25);
 			add(group_label);
 			
 			//GROUP INPUT BOX
 			group_input.setLayout(null);
-			group_input.setLocation(150,190);
+			group_input.setLocation(165,190);
 			group_input.setSize(210,25);
 			add(group_input);
 		}
@@ -165,7 +166,7 @@ class Combo_Box_Add_Appointment extends JFrame
 		
 		//CREATE BUTTON
 		Add.setLayout(null);
-	    Add.setLocation(150, 230);
+	    Add.setLocation(165, 230);
 	    Add.setSize(170, 25);
 		Add.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -266,6 +267,10 @@ class Combo_Box_Add_Appointment extends JFrame
 			}          
 		});
 	    add(Add);	
+	    
+        //Set button to default button to select with enter key
+//        getRootPane().setDefaultButton(Add);
+        SwingUtilities.getRootPane(Add).setDefaultButton(Add);
 	}
 	//ADD APPOINTMENT FUNCTION WITH SQL QUERIES
 	public void sql_add_appointment() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException

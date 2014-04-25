@@ -3,6 +3,7 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 //CLASS LOGIN 
 @SuppressWarnings("serial")
@@ -53,6 +55,9 @@ class LOGIN extends JFrame
      		}          
     	});
 	        add(Login);
+	        
+	        //Set Login Button to default button to select with enter key
+	        getRootPane().setDefaultButton(Login);
 
 		//CREATE BUTTON
 		Create.setLayout(null);
