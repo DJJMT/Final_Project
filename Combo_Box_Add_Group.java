@@ -23,7 +23,7 @@ class Combo_Box_Add_Group extends JFrame
 	JTextField member_count_input = new JTextField();
 	JButton Add = new JButton("Add");
 	JLabel group_label = new JLabel("Group Name: ");
-	JLabel member_count_label = new JLabel("Member Count: ");
+//	JLabel member_count_label = new JLabel("Member Count: ");
 	
 	//CONSTRUCTOR
 	public Combo_Box_Add_Group() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
@@ -49,16 +49,16 @@ class Combo_Box_Add_Group extends JFrame
 		add(group_name_input);
 		
 		/*LABEL - MEMBER_COUNT_LABEL*/
-		member_count_label.setLayout(null);
-		member_count_label.setLocation(20, 40);
-		member_count_label.setSize(100,25);
-		add(member_count_label);
-		
-		//MEMBER COUNT INPUT BOX
-		member_count_input.setLayout(null);
-		member_count_input.setLocation(150,40);
-		member_count_input.setSize(210,25);
-		add(member_count_input);
+//		member_count_label.setLayout(null);
+//		member_count_label.setLocation(20, 40);
+//		member_count_label.setSize(100,25);
+//		add(member_count_label);
+//		
+//		//MEMBER COUNT INPUT BOX
+//		member_count_input.setLayout(null);
+//		member_count_input.setLocation(150,40);
+//		member_count_input.setSize(210,25);
+//		add(member_count_input);
 		
 		
 		//CREATE BUTTON
@@ -86,16 +86,16 @@ class Combo_Box_Add_Group extends JFrame
     				    JOptionPane.ERROR_MESSAGE);
         	   	}
 			
-			if(MemberCount_hasSpecialChar == false)
-				{
-        		//Checks to make sure Member count is an integer
-        		JOptionPane.showMessageDialog(null,
-    				    "Please enter a valid Group Count!",
-    				    "Count Error",
-    				    JOptionPane.ERROR_MESSAGE);
-        	   	}
+//			if(MemberCount_hasSpecialChar == false)
+//				{
+//        		//Checks to make sure Member count is an integer
+//        		JOptionPane.showMessageDialog(null,
+//    				    "Please enter a valid Group Count!",
+//    				    "Count Error",
+//    				    JOptionPane.ERROR_MESSAGE);
+//        	   	}
 			
-			if(GroupName_hasSpecialChar == true && MemberCount_hasSpecialChar == true)
+			if(GroupName_hasSpecialChar == true)// && MemberCount_hasSpecialChar == true)
 			//CLOSE WINDOW WHEN CREATE BUTTON CLICKED
 			{
 				try {
@@ -128,7 +128,7 @@ class Combo_Box_Add_Group extends JFrame
 	{
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 		Statement s = GUI.con.createStatement();
-		s.executeUpdate("INSERT INTO groups VALUES(default," +"\'"+group_name_input.getText()+"\',"+member_count_input.getText()+");");
+		s.executeUpdate("INSERT INTO groups VALUES(default," +"\'"+group_name_input.getText()+"\',"+"0"+");");
 		s.close();
 	}
 }

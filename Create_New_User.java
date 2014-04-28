@@ -254,24 +254,24 @@ class Create_New_User extends JFrame
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 		Statement s = GUI.con.createStatement();
 		
-
-		
-		
-		//Inserts the values into the Database
+		//Inserts the values into the Database (New Users initialized at 4, can't do anything)
 		s.executeUpdate ("INSERT INTO all_users VALUES(default,"+ "4" +","+"\'"+f_name_input.getText()+"\',"+"\'"+l_name_input.getText()+"\',"+"\'"+username_input.getText()+"\',"+"\'"+password_input.getText()+"\',"+"\'"+access_code_input.getText()+"\',"+ "\'" + group_input.getText()+"\'"+");");
-		//Get Member Account number
-	
-//		//s.executeUpdate("INSERT INTO groups VALUES(default," +"\'"+group_input.getText()+"\',"+"0"+");");
-//		s.executeQuery ("SELECT Member_Count FROM groups WHERE G_Name = \'"+group_input.getText()+"\';");
-//		ResultSet rs = s.getResultSet();
-//		int count = 1;
-//		while(rs.next())
-//		{
-//		count = rs.getInt("Member_Count");
-//		count++;
-//		}
-//		s.executeUpdate("UPDATE groups SET Member_Count = \'"+count+"\' WHERE G_NAME = 'Test'");
-//		rs.close();
+
+		//The New User will enter a group name, if this group name exists, increment the count of the group by 1. If not, add the new group to groups 	
+		s.executeQuery ("SELECT Member_Count FROM groups WHERE G_Name = \'"+group_input.getText()+"\';"); 
+		ResultSet rs = s.getResultSet();
+		int count = 0;
+		while(rs.next())
+		{
+			count = rs.getInt("Member_Count");
+			count++;
+		}
+		
+		if (count == 0)
+			s.executeUpdate("INSERT INTO groups VALUES(default," +"\'"+group_input.getText()+"\',"+"1"+");");
+		else
+			s.executeUpdate("UPDATE groups SET Member_Count = \'"+count+"\' WHERE G_NAME = \'"+group_input.getText()+"\';");
+		rs.close();
 		s.close();
 	}
 }

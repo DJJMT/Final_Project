@@ -2,6 +2,7 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
@@ -231,6 +232,22 @@ class Combo_Box_Add_Account extends JFrame
 		{
 			s.executeUpdate ("INSERT INTO all_users VALUES(default,"+ "3" +","+"\'"+f_name_input.getText()+"\',"+"\'"+l_name_input.getText()+"\',"+"\'"+username_input.getText()+"\',"+"\'"+password_input.getText()+"\',"+"\'"+access_code_input.getText()+"\',"+ "\'" + GUI.ugn +"\'"+");");
 		}
+		
+		//The New Account will have a group name, if this group name exists, increment the count of the group by 1. If not, add the new group to groups 	
+		s.executeQuery ("SELECT Member_Count FROM groups WHERE G_Name = \'"+group_input.getText()+"\';"); 
+		ResultSet rs = s.getResultSet();
+		int count = 0;
+		while(rs.next())
+		{
+			count = rs.getInt("Member_Count");
+			count++;
+		}
+		
+		if (count == 0)
+			s.executeUpdate("INSERT INTO groups VALUES(default," +"\'"+group_input.getText()+"\',"+"1"+");");
+		else
+			s.executeUpdate("UPDATE groups SET Member_Count = \'"+count+"\' WHERE G_NAME = \'"+group_input.getText()+"\';");
+		rs.close();
 		s.close();
 	}
 }
